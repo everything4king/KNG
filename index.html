@@ -1941,6 +1941,304 @@ window.addEventListener(
 );
 
 </script>
+<style>
+/* =========================================================
+   KNG. PREMIUM VISUAL UPGRADE
+   ========================================================= */
 
+:root{
+  --kng-gold:#d6a52d;
+  --kng-gold-light:#f4d477;
+  --kng-black:#070707;
+  --kng-card:#101010;
+  --kng-line:#272727;
+  --kng-white:#ffffff;
+  --kng-muted:#a7a7a7;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 15% 10%, rgba(214,165,45,.055), transparent 28%),
+    radial-gradient(circle at 85% 35%, rgba(214,165,45,.035), transparent 30%),
+    var(--kng-black);
+  color:var(--kng-white);
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(
+    var(--kng-gold),
+    #8f6815
+  );
+  border-radius:20px;
+}
+
+/* Text selection */
+::selection{
+  background:var(--kng-gold);
+  color:#000;
+}
+
+/* Navigation */
+nav,
+header{
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  background:rgba(7,7,7,.82)!important;
+  border-bottom:1px solid rgba(214,165,45,.18)!important;
+}
+
+/* Buttons */
+button,
+.btn,
+a[class*="btn"],
+a[class*="button"]{
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    border-color .25s ease;
+}
+
+button:hover,
+.btn:hover,
+a[class*="btn"]:hover,
+a[class*="button"]:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(214,165,45,.18);
+}
+
+/* Cards */
+.card,
+.product-card,
+.collection-card,
+.shop-card,
+[class*="card"]{
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.card:hover,
+.product-card:hover,
+.collection-card:hover,
+.shop-card:hover,
+[class*="card"]:hover{
+  transform:translateY(-7px);
+  border-color:rgba(214,165,45,.55)!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.45);
+}
+
+/* Images */
+img{
+  transition:
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    filter .5s ease;
+}
+
+img:hover{
+  transform:scale(1.035);
+}
+
+/* Gold headings */
+h1,h2,h3{
+  letter-spacing:-.025em;
+}
+
+.gold,
+.accent,
+.highlight{
+  color:var(--kng-gold)!important;
+}
+
+/* Premium section glow */
+section{
+  position:relative;
+}
+
+section::before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  background:rgba(214,165,45,.035);
+  filter:blur(70px);
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* Elegant separators */
+hr{
+  border:0;
+  border-top:1px solid rgba(214,165,45,.18);
+}
+
+/* Fade-up animation */
+@keyframes kngFadeUp{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+section,
+.card,
+.product-card,
+.collection-card{
+  animation:kngFadeUp .8s ease both;
+}
+
+/* Crown pulse */
+@keyframes kngGlow{
+  0%,100%{
+    text-shadow:0 0 0 rgba(214,165,45,0);
+  }
+  50%{
+    text-shadow:
+      0 0 18px rgba(214,165,45,.22),
+      0 0 35px rgba(214,165,45,.08);
+  }
+}
+
+.logo,
+.brand,
+[class*="logo"]{
+  animation:kngGlow 4s ease-in-out infinite;
+}
+
+/* Premium quote section */
+blockquote{
+  position:relative;
+  border-left:2px solid var(--kng-gold);
+  padding:25px 30px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(214,165,45,.08),
+      rgba(255,255,255,.015)
+    );
+  border-radius:14px;
+}
+
+/* Inputs */
+input,
+select,
+textarea{
+  background:#0d0d0d!important;
+  color:#fff!important;
+  border:1px solid #333!important;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none!important;
+  border-color:var(--kng-gold)!important;
+  box-shadow:0 0 0 3px rgba(214,165,45,.1)!important;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  h1{
+    font-size:clamp(2.6rem,12vw,5rem)!important;
+  }
+
+  h2{
+    font-size:clamp(2rem,9vw,3.5rem)!important;
+  }
+
+  section{
+    padding-left:20px!important;
+    padding-right:20px!important;
+  }
+
+  button,
+  .btn{
+    min-height:48px;
+  }
+}
+
+/* Reduced motion accessibility */
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+
+<script>
+/* =========================================================
+   KNG. INTERACTION UPGRADE
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+  /* Smooth navigation */
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener("click",e=>{
+      const target=document.querySelector(link.getAttribute("href"));
+
+      if(target){
+        e.preventDefault();
+
+        target.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+      }
+    });
+  });
+
+  /* Reveal sections when they enter the screen */
+  const observer=new IntersectionObserver(
+    entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.animationPlayState="running";
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {threshold:.12}
+  );
+
+  document
+    .querySelectorAll("section,.card,.product-card,.collection-card")
+    .forEach(el=>{
+      el.style.animationPlayState="paused";
+      observer.observe(el);
+    });
+
+});
+</script>
 </body>
 </html>
