@@ -7,11 +7,699 @@
   <meta name="description" content="KNG. Built Different. Wear the Crown. Be the Standard." />
   <title>KNG. — Built Different.</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- =====================================================
+       KNG HERO OVERRIDES
+       ====================================================== -->
+
+  <style>
+
+    /* =====================================================
+       PREMIUM KNG HERO
+       ====================================================== */
+
+    .luxury-hero {
+      position: relative !important;
+      overflow: hidden !important;
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(212, 169, 55, 0.12) 0%,
+          rgba(212, 169, 55, 0.045) 25%,
+          rgba(0, 0, 0, 0) 62%
+        ),
+        #050505 !important;
+      isolation: isolate;
+    }
+
+
+    /* -----------------------------------------------
+       SUBTLE HERO LIGHT
+       ----------------------------------------------- */
+
+    .luxury-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 62%,
+          rgba(218, 170, 47, 0.10),
+          transparent 45%
+        );
+
+      animation: kngAmbientGlow 6s ease-in-out infinite;
+    }
+
+
+    @keyframes kngAmbientGlow {
+      0%,
+      100% {
+        opacity: 0.65;
+        transform: scale(0.98);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+    }
+
+
+    /* -----------------------------------------------
+       HERO CONTENT
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-content {
+      position: relative !important;
+      z-index: 5 !important;
+    }
+
+
+    /* -----------------------------------------------
+       EST. 2026
+       ----------------------------------------------- */
+
+    .luxury-hero .eyebrow {
+      position: relative;
+      z-index: 10;
+
+      color: #d4a937 !important;
+
+      letter-spacing: 7px !important;
+      font-weight: 600;
+
+      text-transform: uppercase;
+
+      margin-bottom: 25px !important;
+    }
+
+
+    /* -----------------------------------------------
+       KNG LOGO STAGE
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-logo {
+      position: relative !important;
+
+      display: inline-block !important;
+
+      margin: 0 !important;
+
+      font-family:
+        Arial Black,
+        Helvetica Neue,
+        Arial,
+        sans-serif !important;
+
+      font-size: clamp(130px, 19vw, 285px) !important;
+
+      font-weight: 950 !important;
+
+      line-height: 0.75 !important;
+
+      letter-spacing: -18px !important;
+
+      color: transparent !important;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff4bd 0%,
+          #f5d36d 14%,
+          #d5a52c 32%,
+          #a87309 48%,
+          #f7d873 62%,
+          #b67f0c 78%,
+          #ffeaa0 100%
+        ) !important;
+
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+
+      -webkit-text-fill-color: transparent !important;
+
+      transform-style: preserve-3d !important;
+
+      will-change:
+        transform,
+        filter;
+
+      animation:
+        kngPremiumMotion 18s linear infinite !important;
+
+      text-shadow:
+
+        /* front depth */
+        1px 1px 0 #9b6c09,
+        2px 2px 0 #8a6007,
+        3px 3px 0 #795207,
+        4px 4px 0 #674705,
+        5px 5px 0 #553a04,
+        6px 6px 0 #432e03,
+
+        /* deep shadow */
+        10px 12px 18px rgba(0,0,0,0.9),
+
+        /* gold glow */
+        0 0 18px rgba(212,169,55,0.42),
+        0 0 42px rgba(212,169,55,0.20);
+
+    }
+
+
+    /* -----------------------------------------------
+       GOLD DOT
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-logo span {
+      color: #d4a937 !important;
+
+      background: none !important;
+
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+
+      -webkit-text-fill-color: #d4a937 !important;
+
+      text-shadow:
+        1px 1px 0 #9b6c09,
+        2px 2px 0 #795207,
+        4px 5px 0 #4b3304,
+        8px 10px 15px rgba(0,0,0,0.85),
+        0 0 25px rgba(212,169,55,0.45) !important;
+
+      display: inline-block;
+
+      margin-left: 12px;
+    }
+
+
+    /* -----------------------------------------------
+       MAIN 360° + ZOOM ANIMATION
+       ----------------------------------------------- */
+
+    @keyframes kngPremiumMotion {
+
+      0% {
+        transform:
+          perspective(1400px)
+          rotateY(0deg)
+          rotateX(0deg)
+          scale(0.96)
+          translateZ(0);
+      }
+
+      12.5% {
+        transform:
+          perspective(1400px)
+          rotateY(45deg)
+          rotateX(1deg)
+          scale(1.01)
+          translateZ(12px);
+      }
+
+      25% {
+        transform:
+          perspective(1400px)
+          rotateY(90deg)
+          rotateX(2deg)
+          scale(1.05)
+          translateZ(18px);
+      }
+
+      37.5% {
+        transform:
+          perspective(1400px)
+          rotateY(135deg)
+          rotateX(1deg)
+          scale(1.02)
+          translateZ(10px);
+      }
+
+      50% {
+        transform:
+          perspective(1400px)
+          rotateY(180deg)
+          rotateX(0deg)
+          scale(0.96)
+          translateZ(0);
+      }
+
+      62.5% {
+        transform:
+          perspective(1400px)
+          rotateY(225deg)
+          rotateX(-1deg)
+          scale(1.02)
+          translateZ(10px);
+      }
+
+      75% {
+        transform:
+          perspective(1400px)
+          rotateY(270deg)
+          rotateX(-2deg)
+          scale(1.05)
+          translateZ(18px);
+      }
+
+      87.5% {
+        transform:
+          perspective(1400px)
+          rotateY(315deg)
+          rotateX(-1deg)
+          scale(1.01)
+          translateZ(10px);
+      }
+
+      100% {
+        transform:
+          perspective(1400px)
+          rotateY(360deg)
+          rotateX(0deg)
+          scale(0.96)
+          translateZ(0);
+      }
+
+    }
+
+
+    /* -----------------------------------------------
+       MOVING FLOOR SHADOW
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-content::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      top: 62%;
+
+      width: min(700px, 72vw);
+      height: 95px;
+
+      transform:
+        translateX(-50%)
+        scaleX(0.88);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(212,169,55,0.48) 0%,
+          rgba(212,169,55,0.22) 27%,
+          rgba(212,169,55,0.08) 52%,
+          transparent 75%
+        );
+
+      filter: blur(18px);
+
+      opacity: 0.75;
+
+      z-index: -1;
+
+      pointer-events: none;
+
+      animation:
+        kngShadowMotion 4.5s ease-in-out infinite;
+
+    }
+
+
+    @keyframes kngShadowMotion {
+
+      0%,
+      100% {
+
+        transform:
+          translateX(-50%)
+          translateY(3px)
+          scaleX(0.82)
+          scaleY(0.78)
+          rotate(-1deg);
+
+        opacity: 0.55;
+
+      }
+
+      25% {
+
+        transform:
+          translateX(-50%)
+          translateY(-1px)
+          scaleX(0.98)
+          scaleY(0.92)
+          rotate(1deg);
+
+        opacity: 0.78;
+
+      }
+
+      50% {
+
+        transform:
+          translateX(-50%)
+          translateY(4px)
+          scaleX(1.10)
+          scaleY(1.05)
+          rotate(0deg);
+
+        opacity: 0.95;
+
+      }
+
+      75% {
+
+        transform:
+          translateX(-50%)
+          translateY(-1px)
+          scaleX(0.96)
+          scaleY(0.90)
+          rotate(-1deg);
+
+        opacity: 0.72;
+
+      }
+
+    }
+
+
+    /* -----------------------------------------------
+       GOLD ORBIT ENHANCEMENT
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-orbit {
+
+      border-color:
+        rgba(212,169,55,0.14) !important;
+
+      opacity: 0.75;
+
+    }
+
+
+    .luxury-hero .orbit-one {
+
+      animation:
+        kngOrbitOne 20s linear infinite !important;
+
+    }
+
+
+    .luxury-hero .orbit-two {
+
+      animation:
+        kngOrbitTwo 28s linear infinite reverse !important;
+
+    }
+
+
+    @keyframes kngOrbitOne {
+
+      from {
+        transform:
+          translate(-50%, -50%)
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          translate(-50%, -50%)
+          rotate(360deg);
+      }
+
+    }
+
+
+    @keyframes kngOrbitTwo {
+
+      from {
+        transform:
+          translate(-50%, -50%)
+          rotate(0deg)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translate(-50%, -50%)
+          rotate(180deg)
+          scale(1.025);
+      }
+
+      to {
+        transform:
+          translate(-50%, -50%)
+          rotate(360deg)
+          scale(1);
+      }
+
+    }
+
+
+    /* -----------------------------------------------
+       BUILT DIFFERENT
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-title {
+
+      position: relative;
+      z-index: 10;
+
+      color: #f5f1e8 !important;
+
+      font-family:
+        Arial Black,
+        Helvetica Neue,
+        Arial,
+        sans-serif !important;
+
+      font-size:
+        clamp(38px, 5.5vw, 82px) !important;
+
+      font-weight: 900 !important;
+
+      letter-spacing: 8px !important;
+
+      margin-top: 25px !important;
+
+      text-shadow:
+        0 5px 22px rgba(0,0,0,0.7);
+
+    }
+
+
+    /* -----------------------------------------------
+       TAGLINE
+       ----------------------------------------------- */
+
+    .luxury-hero .hero-sub {
+
+      position: relative;
+      z-index: 10;
+
+      color:
+        rgba(245,241,232,0.72) !important;
+
+      font-size: 14px !important;
+
+      letter-spacing: 6px !important;
+
+      margin-top: 18px !important;
+
+    }
+
+
+    /* -----------------------------------------------
+       CTA
+       ----------------------------------------------- */
+
+    .luxury-hero .cta {
+
+      position: relative;
+
+      z-index: 10;
+
+      border:
+        1px solid rgba(212,169,55,0.65) !important;
+
+      color: #d4a937 !important;
+
+      background:
+        rgba(0,0,0,0.35) !important;
+
+      transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease !important;
+
+    }
+
+
+    .luxury-hero .cta:hover {
+
+      background:
+        #d4a937 !important;
+
+      color:
+        #050505 !important;
+
+      transform:
+        translateY(-3px) !important;
+
+      box-shadow:
+        0 0 35px rgba(212,169,55,0.30);
+
+    }
+
+
+    /* -----------------------------------------------
+       RESPONSIVE
+       ----------------------------------------------- */
+
+    @media (max-width: 900px) {
+
+      .luxury-hero .hero-logo {
+
+        font-size:
+          clamp(105px, 20vw, 190px) !important;
+
+        letter-spacing:
+          -12px !important;
+
+      }
+
+      .luxury-hero .hero-title {
+
+        font-size:
+          clamp(30px, 7vw, 55px) !important;
+
+        letter-spacing:
+          5px !important;
+
+      }
+
+      .luxury-hero .hero-sub {
+
+        font-size: 10px !important;
+
+        letter-spacing: 3px !important;
+
+      }
+
+      .luxury-hero .hero-content::after {
+
+        top: 58%;
+
+        width: 75vw;
+
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .luxury-hero .hero-logo {
+
+        font-size:
+          clamp(85px, 25vw, 145px) !important;
+
+        letter-spacing:
+          -9px !important;
+
+      }
+
+      .luxury-hero .hero-logo span {
+
+        margin-left: 5px;
+
+      }
+
+      .luxury-hero .eyebrow {
+
+        font-size: 9px !important;
+
+        letter-spacing: 4px !important;
+
+      }
+
+      .luxury-hero .hero-title {
+
+        font-size:
+          clamp(24px, 8vw, 38px) !important;
+
+        letter-spacing: 3px !important;
+
+      }
+
+      .luxury-hero .hero-sub {
+
+        max-width: 90%;
+
+        line-height: 1.7;
+
+      }
+
+      .luxury-hero .cta {
+
+        font-size: 9px !important;
+
+        letter-spacing: 2px !important;
+
+        padding: 16px 22px !important;
+
+      }
+
+      .luxury-hero .hero-content::after {
+
+        width: 78vw;
+
+        height: 60px;
+
+        top: 56%;
+
+      }
+
+    }
+
+
+    /* -----------------------------------------------
+       REDUCE MOTION ACCESSIBILITY
+       ----------------------------------------------- */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .luxury-hero .hero-logo,
+      .luxury-hero .hero-content::after,
+      .luxury-hero .hero-orbit,
+      .luxury-hero::before {
+
+        animation: none !important;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-  <!-- LOADER -->
+  <!-- =====================================================
+       LOADER
+  ====================================================== -->
+
   <div class="loader" aria-hidden="true">
     <img src="assets/kng-logo.png" alt="" />
   </div>
@@ -64,7 +752,7 @@
       <div class="hero-content">
 
         <p class="eyebrow">
-          EST. 2026 / LAGOS
+          EST. 2026
         </p>
 
         <h1 class="hero-logo">
@@ -308,10 +996,6 @@
           </p>
 
           <br>
-
-          <!-- ==========================================
-               KNG STORE LINK
-          =========================================== -->
 
           <a
             class="cta"
