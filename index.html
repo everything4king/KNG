@@ -1,336 +1,488 @@
-<!-- =========================
-     KNG HERO 3D LOGO
-========================= -->
-
-<style>
-/* KNG 3D HERO WRAPPER */
-.kng-hero-logo-wrap {
-    position: relative;
-    width: min(720px, 82vw);
-    height: 280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1200px;
-}
-
-/* MOVING SHADOW UNDER KNG */
-.kng-hero-shadow {
-    position: absolute;
-    width: 62%;
-    height: 55px;
-    left: 50%;
-    bottom: 18px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(212, 166, 42, 0.55) 0%,
-            rgba(212, 166, 42, 0.28) 35%,
-            rgba(212, 166, 42, 0.10) 60%,
-            transparent 75%
-        );
-
-    filter: blur(25px);
-
-    animation: kngShadowMove 6s ease-in-out infinite;
-    
-    z-index: 0;
-    pointer-events: none;
-}
-
-
-/* MAIN KNG */
-.kng-hero-logo {
-    position: relative;
-    z-index: 2;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: clamp(110px, 18vw, 235px);
-
-    font-weight: 900;
-
-    letter-spacing: -0.09em;
-
-    line-height: 0.8;
-
-    color: transparent;
-
-    /* GOLD METALLIC FACE */
-    background:
-        linear-gradient(
-            180deg,
-            #fff4bd 0%,
-            #f4d875 10%,
-            #d9aa32 27%,
-            #a87817 48%,
-            #e4bb48 67%,
-            #fff0a5 83%,
-            #a87514 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    /* GOLD GLOW */
-    filter:
-        drop-shadow(0 2px 0 #6f4c0b)
-        drop-shadow(0 6px 0 #503707)
-        drop-shadow(0 10px 10px rgba(0,0,0,0.75))
-        drop-shadow(0 0 18px rgba(214,166,42,0.22));
-
-    transform-style: preserve-3d;
-
-    transform-origin: center center;
-
-    animation: kngHeroMotion 6s ease-in-out infinite;
-
-    user-select: none;
-    pointer-events: none;
-
-    will-change: transform, filter;
-}
-
-
-/* EXTRA 3D DEPTH */
-.kng-hero-logo::after {
-    content: "KNG.";
-
-    position: absolute;
-    inset: 0;
-
-    color: #6f4c0b;
-
-    transform:
-        translate3d(0, 11px, -12px);
-
-    z-index: -1;
-
-    opacity: 0.85;
-
-    filter: blur(0.5px);
-}
-
-
-/* MAIN ROTATION + ZOOM */
-@keyframes kngHeroMotion {
-
-    0% {
-        transform:
-            perspective(1200px)
-            rotateY(0deg)
-            rotateX(0deg)
-            scale(0.92);
-    }
-
-    12.5% {
-        transform:
-            perspective(1200px)
-            rotateY(45deg)
-            rotateX(2deg)
-            scale(0.98);
-    }
-
-    25% {
-        transform:
-            perspective(1200px)
-            rotateY(90deg)
-            rotateX(0deg)
-            scale(1.04);
-    }
-
-    37.5% {
-        transform:
-            perspective(1200px)
-            rotateY(135deg)
-            rotateX(-2deg)
-            scale(1.08);
-    }
-
-    50% {
-        transform:
-            perspective(1200px)
-            rotateY(180deg)
-            rotateX(0deg)
-            scale(1.10);
-    }
-
-    62.5% {
-        transform:
-            perspective(1200px)
-            rotateY(225deg)
-            rotateX(2deg)
-            scale(1.06);
-    }
-
-    75% {
-        transform:
-            perspective(1200px)
-            rotateY(270deg)
-            rotateX(0deg)
-            scale(1.02);
-    }
-
-    87.5% {
-        transform:
-            perspective(1200px)
-            rotateY(315deg)
-            rotateX(-2deg)
-            scale(0.97);
-    }
-
-    100% {
-        transform:
-            perspective(1200px)
-            rotateY(360deg)
-            rotateX(0deg)
-            scale(0.92);
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="KNG. Built Different. Wear the Crown. Be the Standard." />
+  <title>KNG. â€” Built Different.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
+<body>
 
-/* SHADOW FOLLOWS THE ZOOM */
-@keyframes kngShadowMove {
+  <!-- LOADER -->
+  <div class="loader" aria-hidden="true">
+    <img src="assets/kng-logo.png" alt="" />
+  </div>
 
-    0% {
-        transform:
-            translateX(-50%)
-            scale(0.72);
 
-        opacity: 0.30;
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
 
-        filter: blur(22px);
-    }
-
-    12.5% {
-        transform:
-            translateX(-48%)
-            scale(0.82);
+  <header class="nav">
 
-        opacity: 0.38;
+    <a class="brand" href="#home" aria-label="KNG home">
+      <span>KNG.</span>
+    </a>
 
-        filter: blur(24px);
-    }
+    <button class="menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
 
-    25% {
-        transform:
-            translateX(-45%)
-            scale(0.94);
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#standard">STANDARD</a>
+      <a href="#founder">FOUNDER</a>
+      <a href="#collections">STORE</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
 
-        opacity: 0.48;
+  </header>
 
-        filter: blur(26px);
-    }
 
-    37.5% {
-        transform:
-            translateX(-42%)
-            scale(1.08);
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
 
-        opacity: 0.58;
+  <main>
 
-        filter: blur(29px);
-    }
 
-    50% {
-        transform:
-            translateX(-50%)
-            scale(1.18);
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
 
-        opacity: 0.70;
+    <section id="home" class="hero luxury-hero">
 
-        filter: blur(32px);
-    }
+      <div class="hero-noise"></div>
 
-    62.5% {
-        transform:
-            translateX(-57%)
-            scale(1.10);
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
 
-        opacity: 0.58;
+      <div class="hero-content">
 
-        filter: blur(29px);
-    }
+        <p class="eyebrow">
+          EST. 2026 / LAGOS
+        </p>
 
-    75% {
-        transform:
-            translateX(-55%)
-            scale(0.96);
+        <h1 class="hero-logo">
+          KNG<span>.</span>
+        </h1>
 
-        opacity: 0.47;
+        <p class="hero-title">
+          BUILT DIFFERENT.
+        </p>
 
-        filter: blur(26px);
-    }
+        <p class="hero-sub">
+          WEAR THE CROWN. BE THE STANDARD.
+        </p>
 
-    87.5% {
-        transform:
-            translateX(-52%)
-            scale(0.83);
+        <a class="cta" href="#about">
+          ENTER THE WORLD OF KNG <span>â†“</span>
+        </a>
 
-        opacity: 0.38;
+      </div>
 
-        filter: blur(24px);
-    }
+      <div class="scroll">
+        SCROLL TO DISCOVER <span>â†“</span>
+      </div>
 
-    100% {
-        transform:
-            translateX(-50%)
-            scale(0.72);
+      <div class="hero-corner">
+        KNG / 001
+      </div>
 
-        opacity: 0.30;
+    </section>
 
-        filter: blur(22px);
-    }
-}
 
+    <!-- ===================================================
+         ABOUT
+    ==================================================== -->
+
+    <section id="about" class="section about reveal">
 
-/* MOBILE */
-@media (max-width: 600px) {
+      <div class="section-label">
+        01 / ABOUT KNG
+      </div>
 
-    .kng-hero-logo-wrap {
-        height: 190px;
-    }
+      <div class="about-copy">
 
-    .kng-hero-logo {
-        font-size: clamp(80px, 24vw, 145px);
-    }
+        <p class="micro">
+          MORE THAN FASHION.
+        </p>
 
-    .kng-hero-shadow {
-        bottom: 8px;
-        width: 65%;
-        height: 35px;
-    }
-}
+        <h2>
+          NOT JUST<br>
+          <em>A BRAND.</em><br>
+          A MINDSET.
+        </h2>
 
+        <p>
+          KNG. is a modern fashion brand built for people who refuse to blend in.
+          KNG represents confidence, individuality, discipline and ambition â€”
+          the mindset of becoming the best version of yourself and creating your
+          own standard.
+        </p>
 
-/* REDUCED MOTION ACCESSIBILITY */
-@media (prefers-reduced-motion: reduce) {
+        <p>
+          The crown isn't about being above everyone else. It's about knowing
+          your worth, setting your own standard, and having the confidence to
+          stand apart.
+        </p>
 
-    .kng-hero-logo,
-    .kng-hero-shadow {
-        animation: none;
-    }
-}
-</style>
+        <div class="signature-line">
+          <span></span>
+          THE KNG MINDSET
+        </div>
 
+      </div>
 
-<!-- =========================
-     HERO KNG
-========================= -->
+    </section>
 
-<div class="kng-hero-logo-wrap">
 
-    <div class="kng-hero-shadow"></div>
+    <!-- ===================================================
+         STANDARD
+    ==================================================== -->
 
-    <div class="kng-hero-logo">
-        KNG.
+    <section id="standard" class="standard reveal">
+
+      <div class="section-label">
+        02 / THE KNG STANDARD
+      </div>
+
+      <div class="standard-head">
+
+        <p class="micro">
+          A CODE TO LIVE BY
+        </p>
+
+        <h2>
+          BUILT<br>
+          <em>DIFFERENT.</em>
+        </h2>
+
+      </div>
+
+
+      <div class="values">
+
+        <article>
+          <span>01</span>
+          <h3>CONFIDENCE</h3>
+          <p>
+            Know your worth. Carry yourself like you belong at the top.
+          </p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>INDIVIDUALITY</h3>
+          <p>
+            Create your own lane. Never become a copy of the crowd.
+          </p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>DISCIPLINE</h3>
+          <p>
+            Build the person behind the image. Standards require consistency.
+          </p>
+        </article>
+
+        <article>
+          <span>04</span>
+          <h3>AMBITION</h3>
+          <p>
+            Never settle for ordinary. Keep moving toward what comes next.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FOUNDER
+    ==================================================== -->
+
+    <section id="founder" class="founder reveal">
+
+      <div class="founder-visual">
+
+        <div class="founder-monogram">
+          K
+        </div>
+
+        <div class="founder-stamp">
+          KNG.<br>
+          EST. 2026
+        </div>
+
+      </div>
+
+
+      <div class="founder-content">
+
+        <div class="section-label">
+          03 / THE FOUNDER
+        </div>
+
+        <p class="micro">
+          THE VISION BEHIND THE CROWN
+        </p>
+
+        <h2>
+          EMMANUEL<br>
+          <em>ISAAC O.</em>
+        </h2>
+
+        <p class="role">
+          CEO &amp; FOUNDER, KNG.
+        </p>
+
+        <blockquote>
+          â€œI didn't start KNG just to create clothes. I started it to create a standard.â€
+        </blockquote>
+
+        <p>
+          KNG was born from a desire to build something that represents more than
+          fashion â€” a brand that gives people the confidence to embrace who they
+          are, create their own lane, and never be afraid to stand apart.
+        </p>
+
+        <p>
+          I wanted to create something that reflects the mindset I believe in:
+          confidence, ambition, discipline and individuality.
+        </p>
+
+        <p>
+          The crown became the symbol of that vision. Not a symbol of being above
+          anyone, but a reminder to know your worth, believe in yourself, and have
+          the courage to become the person you were meant to be.
+        </p>
+
+        <p class="founder-end">
+          KNG is my vision brought to life â€” and this is only the beginning.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         KNG STORE / COLLECTION LAUNCH
+    ==================================================== -->
+
+    <section id="collections" class="section collections reveal">
+
+      <div class="section-label">
+        04 / KNG STORE
+      </div>
+
+
+      <div class="collection-top">
+
+        <div>
+
+          <p class="micro">
+            THE FIRST CHAPTER
+          </p>
+
+          <h2>
+            THE CROWN<br>
+            <em>IS COMING.</em>
+          </h2>
+
+        </div>
+
+
+        <div class="intro">
+
+          <p>
+            The first KNG collections are being built.
+            Stay close. The drop will speak for itself.
+          </p>
+
+          <br>
+
+          <!-- ==========================================
+               KNG STORE LINK
+          =========================================== -->
+
+          <a
+            class="cta"
+            href="https://everything4king.github.io/KNG-STORE/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ENTER KNG STORE <span>â†—</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MANIFESTO
+    ==================================================== -->
+
+    <section class="manifesto reveal">
+
+      <div class="manifesto-line">
+        KNOW YOUR WORTH.
+      </div>
+
+      <div class="manifesto-line">
+        CREATE YOUR OWN LANE.
+      </div>
+
+      <div class="manifesto-line gold">
+        SET YOUR OWN STANDARD.
+      </div>
+
+      <div class="manifesto-crown">
+        â™›
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTACT
+    ==================================================== -->
+
+    <section id="contact" class="contact section reveal">
+
+      <div class="section-label">
+        05 / CONNECT
+      </div>
+
+      <p class="micro">
+        DON'T JUST WATCH.
+      </p>
+
+      <h2>
+        STAY<br>
+        <em>DIFFERENT.</em>
+      </h2>
+
+      <p>
+        Follow the journey. The crown is only the beginning.
+      </p>
+
+
+      <div class="socials">
+
+        <a
+          href="https://www.instagram.com/kngwears001/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          INSTAGRAM <span>â†—</span>
+        </a>
+
+
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=wearkng@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          EMAIL <span>â†—</span>
+        </a>
+
+
+        <a
+          href="https://wa.me/2347077467561"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WHATSAPP <span>â†—</span>
+        </a>
+
+
+        <a
+          href="https://t.me/07077467561"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TELEGRAM <span>â†—</span>
+        </a>
+
+
+        <a
+          href="https://www.snapchat.com/add/everything4king"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SNAPCHAT <span>â†—</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINAL CTA
+    ==================================================== -->
+
+    <section class="final-cta reveal">
+
+      <p class="micro">
+        THE NEXT STANDARD
+      </p>
+
+      <h2>
+        YOU'VE SEEN<br>
+        <em>THE STANDARD.</em>
+      </h2>
+
+      <p>
+        Now wait for the drop.
+      </p>
+
+      <a class="cta" href="#home">
+        BACK TO THE CROWN <span>â†‘</span>
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      KNG.
     </div>
 
-</div>
+    <div>
+      BUILT DIFFERENT. / WEAR THE CROWN. BE THE STANDARD.
+    </div>
+
+    <div>
+      Â© 2026 KNG.
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       SCRIPT
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
