@@ -482,7 +482,70 @@
        SCRIPT
   ====================================================== -->
 
+  
   <script src="script.js"></script>
+
+<!-- KNG CHARACTER ENCODING FIX -->
+<script>
+(function () {
+  function repairPage() {
+    const replacements = {
+      "\u00e2\u20ac\u201d": "\u2014",
+      "\u00e2\u20ac\u2013": "\u2013",
+      "\u00e2\u20ac\u2122": "\u2019",
+      "\u00e2\u20ac\u02dc": "\u2018",
+      "\u00e2\u20ac\u0153": "\u201c",
+      "\u00e2\u20ac\u009d": "\u201d",
+      "\u00c2\u00a9": "\u00a9",
+      "\u00c2\u00ae": "\u00ae",
+      "\u00c2\u00b0": "\u00b0"
+    };
+
+    function repairText(text) {
+      let fixed = text;
+
+      for (const bad in replacements) {
+        fixed = fixed.split(bad).join(replacements[bad]);
+      }
+
+      return fixed;
+    }
+
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.nodeValue = repairText(node.nodeValue);
+        return;
+      }
+
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        for (const child of node.childNodes) {
+          walk(child);
+        }
+      }
+    }
+
+    function repair() {
+      walk(document.body);
+      document.title = repairText(document.title);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", repair);
+    } else {
+      repair();
+    }
+  }
+
+  repairPage();
+})();
+</script>
+    
+  
+
+
 
 </body>
 </html>
+
+
+
