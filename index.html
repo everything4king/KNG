@@ -1,1172 +1,336 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050505" />
-  <meta name="description" content="KNG. Built Different. Wear the Crown. Be the Standard." />
-  <title>KNG. — Built Different.</title>
-  <link rel="stylesheet" href="styles.css" />
+<!-- =========================
+     KNG HERO 3D LOGO
+========================= -->
 
-  <!-- =====================================================
-       KNG HERO OVERRIDES
-       ====================================================== -->
+<style>
+/* KNG 3D HERO WRAPPER */
+.kng-hero-logo-wrap {
+    position: relative;
+    width: min(720px, 82vw);
+    height: 280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
 
-  <style>
-
-    /* =====================================================
-       PREMIUM KNG HERO
-       ====================================================== */
-
-    .luxury-hero {
-      position: relative !important;
-      overflow: hidden !important;
-      background:
+/* MOVING SHADOW UNDER KNG */
+.kng-hero-shadow {
+    position: absolute;
+    width: 62%;
+    height: 55px;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    
+    background:
         radial-gradient(
-          circle at 50% 45%,
-          rgba(212, 169, 55, 0.12) 0%,
-          rgba(212, 169, 55, 0.045) 25%,
-          rgba(0, 0, 0, 0) 62%
-        ),
-        #050505 !important;
-      isolation: isolate;
-    }
-
-
-    /* -----------------------------------------------
-       SUBTLE HERO LIGHT
-       ----------------------------------------------- */
-
-    .luxury-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-
-      background:
-        radial-gradient(
-          ellipse at 50% 62%,
-          rgba(218, 170, 47, 0.10),
-          transparent 45%
+            ellipse,
+            rgba(212, 166, 42, 0.55) 0%,
+            rgba(212, 166, 42, 0.28) 35%,
+            rgba(212, 166, 42, 0.10) 60%,
+            transparent 75%
         );
 
-      animation: kngAmbientGlow 6s ease-in-out infinite;
-    }
+    filter: blur(25px);
+
+    animation: kngShadowMove 6s ease-in-out infinite;
+    
+    z-index: 0;
+    pointer-events: none;
+}
 
 
-    @keyframes kngAmbientGlow {
-      0%,
-      100% {
-        opacity: 0.65;
-        transform: scale(0.98);
-      }
+/* MAIN KNG */
+.kng-hero-logo {
+    position: relative;
+    z-index: 2;
 
-      50% {
-        opacity: 1;
-        transform: scale(1.04);
-      }
-    }
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
+    font-size: clamp(110px, 18vw, 235px);
 
-    /* -----------------------------------------------
-       HERO CONTENT
-       ----------------------------------------------- */
+    font-weight: 900;
 
-    .luxury-hero .hero-content {
-      position: relative !important;
-      z-index: 5 !important;
-    }
+    letter-spacing: -0.09em;
 
+    line-height: 0.8;
 
-    /* -----------------------------------------------
-       EST. 2026
-       ----------------------------------------------- */
+    color: transparent;
 
-    .luxury-hero .eyebrow {
-      position: relative;
-      z-index: 10;
-
-      color: #d4a937 !important;
-
-      letter-spacing: 7px !important;
-      font-weight: 600;
-
-      text-transform: uppercase;
-
-      margin-bottom: 25px !important;
-    }
-
-
-    /* -----------------------------------------------
-       KNG LOGO STAGE
-       ----------------------------------------------- */
-
-    .luxury-hero .hero-logo {
-      position: relative !important;
-
-      display: inline-block !important;
-
-      margin: 0 !important;
-
-      font-family:
-        Arial Black,
-        Helvetica Neue,
-        Arial,
-        sans-serif !important;
-
-      font-size: clamp(130px, 19vw, 285px) !important;
-
-      font-weight: 950 !important;
-
-      line-height: 0.75 !important;
-
-      letter-spacing: -18px !important;
-
-      color: transparent !important;
-
-      background:
+    /* GOLD METALLIC FACE */
+    background:
         linear-gradient(
-          135deg,
-          #fff4bd 0%,
-          #f5d36d 14%,
-          #d5a52c 32%,
-          #a87309 48%,
-          #f7d873 62%,
-          #b67f0c 78%,
-          #ffeaa0 100%
-        ) !important;
-
-      -webkit-background-clip: text !important;
-      background-clip: text !important;
-
-      -webkit-text-fill-color: transparent !important;
-
-      transform-style: preserve-3d !important;
-
-      will-change:
-        transform,
-        filter;
-
-      animation:
-        kngPremiumMotion 18s linear infinite !important;
-
-      text-shadow:
-
-        /* front depth */
-        1px 1px 0 #9b6c09,
-        2px 2px 0 #8a6007,
-        3px 3px 0 #795207,
-        4px 4px 0 #674705,
-        5px 5px 0 #553a04,
-        6px 6px 0 #432e03,
-
-        /* deep shadow */
-        10px 12px 18px rgba(0,0,0,0.9),
-
-        /* gold glow */
-        0 0 18px rgba(212,169,55,0.42),
-        0 0 42px rgba(212,169,55,0.20);
-
-    }
-
-
-    /* -----------------------------------------------
-       GOLD DOT
-       ----------------------------------------------- */
-
-    .luxury-hero .hero-logo span {
-      color: #d4a937 !important;
-
-      background: none !important;
-
-      -webkit-background-clip: initial !important;
-      background-clip: initial !important;
-
-      -webkit-text-fill-color: #d4a937 !important;
-
-      text-shadow:
-        1px 1px 0 #9b6c09,
-        2px 2px 0 #795207,
-        4px 5px 0 #4b3304,
-        8px 10px 15px rgba(0,0,0,0.85),
-        0 0 25px rgba(212,169,55,0.45) !important;
-
-      display: inline-block;
-
-      margin-left: 12px;
-    }
-
-
-    /* -----------------------------------------------
-       MAIN 360° + ZOOM ANIMATION
-       ----------------------------------------------- */
-
-    @keyframes kngPremiumMotion {
-
-      0% {
-        transform:
-          perspective(1400px)
-          rotateY(0deg)
-          rotateX(0deg)
-          scale(0.96)
-          translateZ(0);
-      }
-
-      12.5% {
-        transform:
-          perspective(1400px)
-          rotateY(45deg)
-          rotateX(1deg)
-          scale(1.01)
-          translateZ(12px);
-      }
-
-      25% {
-        transform:
-          perspective(1400px)
-          rotateY(90deg)
-          rotateX(2deg)
-          scale(1.05)
-          translateZ(18px);
-      }
-
-      37.5% {
-        transform:
-          perspective(1400px)
-          rotateY(135deg)
-          rotateX(1deg)
-          scale(1.02)
-          translateZ(10px);
-      }
-
-      50% {
-        transform:
-          perspective(1400px)
-          rotateY(180deg)
-          rotateX(0deg)
-          scale(0.96)
-          translateZ(0);
-      }
-
-      62.5% {
-        transform:
-          perspective(1400px)
-          rotateY(225deg)
-          rotateX(-1deg)
-          scale(1.02)
-          translateZ(10px);
-      }
-
-      75% {
-        transform:
-          perspective(1400px)
-          rotateY(270deg)
-          rotateX(-2deg)
-          scale(1.05)
-          translateZ(18px);
-      }
-
-      87.5% {
-        transform:
-          perspective(1400px)
-          rotateY(315deg)
-          rotateX(-1deg)
-          scale(1.01)
-          translateZ(10px);
-      }
-
-      100% {
-        transform:
-          perspective(1400px)
-          rotateY(360deg)
-          rotateX(0deg)
-          scale(0.96)
-          translateZ(0);
-      }
-
-    }
-
-
-    /* -----------------------------------------------
-       MOVING FLOOR SHADOW
-       ----------------------------------------------- */
-
-    .luxury-hero .hero-content::after {
-
-      content: "";
-
-      position: absolute;
-
-      left: 50%;
-      top: 62%;
-
-      width: min(700px, 72vw);
-      height: 95px;
-
-      transform:
-        translateX(-50%)
-        scaleX(0.88);
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          ellipse,
-          rgba(212,169,55,0.48) 0%,
-          rgba(212,169,55,0.22) 27%,
-          rgba(212,169,55,0.08) 52%,
-          transparent 75%
+            180deg,
+            #fff4bd 0%,
+            #f4d875 10%,
+            #d9aa32 27%,
+            #a87817 48%,
+            #e4bb48 67%,
+            #fff0a5 83%,
+            #a87514 100%
         );
 
-      filter: blur(18px);
+    -webkit-background-clip: text;
+    background-clip: text;
 
-      opacity: 0.75;
+    /* GOLD GLOW */
+    filter:
+        drop-shadow(0 2px 0 #6f4c0b)
+        drop-shadow(0 6px 0 #503707)
+        drop-shadow(0 10px 10px rgba(0,0,0,0.75))
+        drop-shadow(0 0 18px rgba(214,166,42,0.22));
 
-      z-index: -1;
+    transform-style: preserve-3d;
 
-      pointer-events: none;
+    transform-origin: center center;
 
-      animation:
-        kngShadowMotion 4.5s ease-in-out infinite;
+    animation: kngHeroMotion 6s ease-in-out infinite;
 
-    }
+    user-select: none;
+    pointer-events: none;
+
+    will-change: transform, filter;
+}
 
 
-    @keyframes kngShadowMotion {
+/* EXTRA 3D DEPTH */
+.kng-hero-logo::after {
+    content: "KNG.";
 
-      0%,
-      100% {
+    position: absolute;
+    inset: 0;
 
+    color: #6f4c0b;
+
+    transform:
+        translate3d(0, 11px, -12px);
+
+    z-index: -1;
+
+    opacity: 0.85;
+
+    filter: blur(0.5px);
+}
+
+
+/* MAIN ROTATION + ZOOM */
+@keyframes kngHeroMotion {
+
+    0% {
         transform:
-          translateX(-50%)
-          translateY(3px)
-          scaleX(0.82)
-          scaleY(0.78)
-          rotate(-1deg);
+            perspective(1200px)
+            rotateY(0deg)
+            rotateX(0deg)
+            scale(0.92);
+    }
 
-        opacity: 0.55;
-
-      }
-
-      25% {
-
+    12.5% {
         transform:
-          translateX(-50%)
-          translateY(-1px)
-          scaleX(0.98)
-          scaleY(0.92)
-          rotate(1deg);
+            perspective(1200px)
+            rotateY(45deg)
+            rotateX(2deg)
+            scale(0.98);
+    }
 
-        opacity: 0.78;
-
-      }
-
-      50% {
-
+    25% {
         transform:
-          translateX(-50%)
-          translateY(4px)
-          scaleX(1.10)
-          scaleY(1.05)
-          rotate(0deg);
+            perspective(1200px)
+            rotateY(90deg)
+            rotateX(0deg)
+            scale(1.04);
+    }
 
-        opacity: 0.95;
-
-      }
-
-      75% {
-
+    37.5% {
         transform:
-          translateX(-50%)
-          translateY(-1px)
-          scaleX(0.96)
-          scaleY(0.90)
-          rotate(-1deg);
-
-        opacity: 0.72;
-
-      }
-
+            perspective(1200px)
+            rotateY(135deg)
+            rotateX(-2deg)
+            scale(1.08);
     }
 
-
-    /* -----------------------------------------------
-       GOLD ORBIT ENHANCEMENT
-       ----------------------------------------------- */
-
-    .luxury-hero .hero-orbit {
-
-      border-color:
-        rgba(212,169,55,0.14) !important;
-
-      opacity: 0.75;
-
-    }
-
-
-    .luxury-hero .orbit-one {
-
-      animation:
-        kngOrbitOne 20s linear infinite !important;
-
-    }
-
-
-    .luxury-hero .orbit-two {
-
-      animation:
-        kngOrbitTwo 28s linear infinite reverse !important;
-
-    }
-
-
-    @keyframes kngOrbitOne {
-
-      from {
+    50% {
         transform:
-          translate(-50%, -50%)
-          rotate(0deg);
-      }
+            perspective(1200px)
+            rotateY(180deg)
+            rotateX(0deg)
+            scale(1.10);
+    }
 
-      to {
+    62.5% {
         transform:
-          translate(-50%, -50%)
-          rotate(360deg);
-      }
-
+            perspective(1200px)
+            rotateY(225deg)
+            rotateX(2deg)
+            scale(1.06);
     }
 
-
-    @keyframes kngOrbitTwo {
-
-      from {
+    75% {
         transform:
-          translate(-50%, -50%)
-          rotate(0deg)
-          scale(1);
-      }
+            perspective(1200px)
+            rotateY(270deg)
+            rotateX(0deg)
+            scale(1.02);
+    }
 
-      50% {
+    87.5% {
         transform:
-          translate(-50%, -50%)
-          rotate(180deg)
-          scale(1.025);
-      }
+            perspective(1200px)
+            rotateY(315deg)
+            rotateX(-2deg)
+            scale(0.97);
+    }
 
-      to {
+    100% {
         transform:
-          translate(-50%, -50%)
-          rotate(360deg)
-          scale(1);
-      }
+            perspective(1200px)
+            rotateY(360deg)
+            rotateX(0deg)
+            scale(0.92);
+    }
+}
 
+
+/* SHADOW FOLLOWS THE ZOOM */
+@keyframes kngShadowMove {
+
+    0% {
+        transform:
+            translateX(-50%)
+            scale(0.72);
+
+        opacity: 0.30;
+
+        filter: blur(22px);
     }
 
+    12.5% {
+        transform:
+            translateX(-48%)
+            scale(0.82);
 
-    /* -----------------------------------------------
-       BUILT DIFFERENT
-       ----------------------------------------------- */
+        opacity: 0.38;
 
-    .luxury-hero .hero-title {
-
-      position: relative;
-      z-index: 10;
-
-      color: #f5f1e8 !important;
-
-      font-family:
-        Arial Black,
-        Helvetica Neue,
-        Arial,
-        sans-serif !important;
-
-      font-size:
-        clamp(38px, 5.5vw, 82px) !important;
-
-      font-weight: 900 !important;
-
-      letter-spacing: 8px !important;
-
-      margin-top: 25px !important;
-
-      text-shadow:
-        0 5px 22px rgba(0,0,0,0.7);
-
+        filter: blur(24px);
     }
 
+    25% {
+        transform:
+            translateX(-45%)
+            scale(0.94);
 
-    /* -----------------------------------------------
-       TAGLINE
-       ----------------------------------------------- */
+        opacity: 0.48;
 
-    .luxury-hero .hero-sub {
-
-      position: relative;
-      z-index: 10;
-
-      color:
-        rgba(245,241,232,0.72) !important;
-
-      font-size: 14px !important;
-
-      letter-spacing: 6px !important;
-
-      margin-top: 18px !important;
-
+        filter: blur(26px);
     }
 
+    37.5% {
+        transform:
+            translateX(-42%)
+            scale(1.08);
 
-    /* -----------------------------------------------
-       CTA
-       ----------------------------------------------- */
+        opacity: 0.58;
 
-    .luxury-hero .cta {
-
-      position: relative;
-
-      z-index: 10;
-
-      border:
-        1px solid rgba(212,169,55,0.65) !important;
-
-      color: #d4a937 !important;
-
-      background:
-        rgba(0,0,0,0.35) !important;
-
-      transition:
-        transform 0.35s ease,
-        background 0.35s ease,
-        color 0.35s ease,
-        box-shadow 0.35s ease !important;
-
+        filter: blur(29px);
     }
 
+    50% {
+        transform:
+            translateX(-50%)
+            scale(1.18);
 
-    .luxury-hero .cta:hover {
+        opacity: 0.70;
 
-      background:
-        #d4a937 !important;
-
-      color:
-        #050505 !important;
-
-      transform:
-        translateY(-3px) !important;
-
-      box-shadow:
-        0 0 35px rgba(212,169,55,0.30);
-
+        filter: blur(32px);
     }
 
+    62.5% {
+        transform:
+            translateX(-57%)
+            scale(1.10);
 
-    /* -----------------------------------------------
-       RESPONSIVE
-       ----------------------------------------------- */
+        opacity: 0.58;
 
-    @media (max-width: 900px) {
-
-      .luxury-hero .hero-logo {
-
-        font-size:
-          clamp(105px, 20vw, 190px) !important;
-
-        letter-spacing:
-          -12px !important;
-
-      }
-
-      .luxury-hero .hero-title {
-
-        font-size:
-          clamp(30px, 7vw, 55px) !important;
-
-        letter-spacing:
-          5px !important;
-
-      }
-
-      .luxury-hero .hero-sub {
-
-        font-size: 10px !important;
-
-        letter-spacing: 3px !important;
-
-      }
-
-      .luxury-hero .hero-content::after {
-
-        top: 58%;
-
-        width: 75vw;
-
-      }
-
+        filter: blur(29px);
     }
 
+    75% {
+        transform:
+            translateX(-55%)
+            scale(0.96);
 
-    @media (max-width: 600px) {
+        opacity: 0.47;
 
-      .luxury-hero .hero-logo {
-
-        font-size:
-          clamp(85px, 25vw, 145px) !important;
-
-        letter-spacing:
-          -9px !important;
-
-      }
-
-      .luxury-hero .hero-logo span {
-
-        margin-left: 5px;
-
-      }
-
-      .luxury-hero .eyebrow {
-
-        font-size: 9px !important;
-
-        letter-spacing: 4px !important;
-
-      }
-
-      .luxury-hero .hero-title {
-
-        font-size:
-          clamp(24px, 8vw, 38px) !important;
-
-        letter-spacing: 3px !important;
-
-      }
-
-      .luxury-hero .hero-sub {
-
-        max-width: 90%;
-
-        line-height: 1.7;
-
-      }
-
-      .luxury-hero .cta {
-
-        font-size: 9px !important;
-
-        letter-spacing: 2px !important;
-
-        padding: 16px 22px !important;
-
-      }
-
-      .luxury-hero .hero-content::after {
-
-        width: 78vw;
-
-        height: 60px;
-
-        top: 56%;
-
-      }
-
+        filter: blur(26px);
     }
 
+    87.5% {
+        transform:
+            translateX(-52%)
+            scale(0.83);
 
-    /* -----------------------------------------------
-       REDUCE MOTION ACCESSIBILITY
-       ----------------------------------------------- */
+        opacity: 0.38;
 
-    @media (prefers-reduced-motion: reduce) {
-
-      .luxury-hero .hero-logo,
-      .luxury-hero .hero-content::after,
-      .luxury-hero .hero-orbit,
-      .luxury-hero::before {
-
-        animation: none !important;
-
-      }
-
+        filter: blur(24px);
     }
 
-  </style>
+    100% {
+        transform:
+            translateX(-50%)
+            scale(0.72);
 
-</head>
+        opacity: 0.30;
 
+        filter: blur(22px);
+    }
+}
 
-<body>
 
-  <!-- =====================================================
-       LOADER
-  ====================================================== -->
+/* MOBILE */
+@media (max-width: 600px) {
 
-  <div class="loader" aria-hidden="true">
-    <img src="assets/kng-logo.png" alt="" />
-  </div>
+    .kng-hero-logo-wrap {
+        height: 190px;
+    }
 
+    .kng-hero-logo {
+        font-size: clamp(80px, 24vw, 145px);
+    }
 
-  <!-- =====================================================
-       NAVIGATION
-  ====================================================== -->
+    .kng-hero-shadow {
+        bottom: 8px;
+        width: 65%;
+        height: 35px;
+    }
+}
 
-  <header class="nav">
 
-    <a class="brand" href="#home" aria-label="KNG home">
-      <span>KNG.</span>
-    </a>
+/* REDUCED MOTION ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
 
-    <button class="menu" aria-label="Open menu">
-      <span></span>
-      <span></span>
-    </button>
+    .kng-hero-logo,
+    .kng-hero-shadow {
+        animation: none;
+    }
+}
+</style>
 
-    <nav>
-      <a href="#about">ABOUT</a>
-      <a href="#standard">STANDARD</a>
-      <a href="#founder">FOUNDER</a>
-      <a href="#collections">STORE</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
 
-  </header>
+<!-- =========================
+     HERO KNG
+========================= -->
 
+<div class="kng-hero-logo-wrap">
 
-  <!-- =====================================================
-       MAIN
-  ====================================================== -->
+    <div class="kng-hero-shadow"></div>
 
-  <main>
-
-
-    <!-- ===================================================
-         HERO
-    ==================================================== -->
-
-    <section id="home" class="hero luxury-hero">
-
-      <div class="hero-noise"></div>
-
-      <div class="hero-orbit orbit-one"></div>
-      <div class="hero-orbit orbit-two"></div>
-
-      <div class="hero-content">
-
-        <p class="eyebrow">
-          EST. 2026
-        </p>
-
-        <h1 class="hero-logo">
-          KNG<span>.</span>
-        </h1>
-
-        <p class="hero-title">
-          BUILT DIFFERENT.
-        </p>
-
-        <p class="hero-sub">
-          WEAR THE CROWN. BE THE STANDARD.
-        </p>
-
-        <a class="cta" href="#about">
-          ENTER THE WORLD OF KNG <span>↓</span>
-        </a>
-
-      </div>
-
-      <div class="scroll">
-        SCROLL TO DISCOVER <span>↓</span>
-      </div>
-
-      <div class="hero-corner">
-        KNG / 001
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         ABOUT
-    ==================================================== -->
-
-    <section id="about" class="section about reveal">
-
-      <div class="section-label">
-        01 / ABOUT KNG
-      </div>
-
-      <div class="about-copy">
-
-        <p class="micro">
-          MORE THAN FASHION.
-        </p>
-
-        <h2>
-          NOT JUST<br>
-          <em>A BRAND.</em><br>
-          A MINDSET.
-        </h2>
-
-        <p>
-          KNG. is a modern fashion brand built for people who refuse to blend in.
-          KNG represents confidence, individuality, discipline and ambition —
-          the mindset of becoming the best version of yourself and creating your
-          own standard.
-        </p>
-
-        <p>
-          The crown isn't about being above everyone else. It's about knowing
-          your worth, setting your own standard, and having the confidence to
-          stand apart.
-        </p>
-
-        <div class="signature-line">
-          <span></span>
-          THE KNG MINDSET
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         STANDARD
-    ==================================================== -->
-
-    <section id="standard" class="standard reveal">
-
-      <div class="section-label">
-        02 / THE KNG STANDARD
-      </div>
-
-      <div class="standard-head">
-
-        <p class="micro">
-          A CODE TO LIVE BY
-        </p>
-
-        <h2>
-          BUILT<br>
-          <em>DIFFERENT.</em>
-        </h2>
-
-      </div>
-
-
-      <div class="values">
-
-        <article>
-          <span>01</span>
-          <h3>CONFIDENCE</h3>
-          <p>
-            Know your worth. Carry yourself like you belong at the top.
-          </p>
-        </article>
-
-        <article>
-          <span>02</span>
-          <h3>INDIVIDUALITY</h3>
-          <p>
-            Create your own lane. Never become a copy of the crowd.
-          </p>
-        </article>
-
-        <article>
-          <span>03</span>
-          <h3>DISCIPLINE</h3>
-          <p>
-            Build the person behind the image. Standards require consistency.
-          </p>
-        </article>
-
-        <article>
-          <span>04</span>
-          <h3>AMBITION</h3>
-          <p>
-            Never settle for ordinary. Keep moving toward what comes next.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         FOUNDER
-    ==================================================== -->
-
-    <section id="founder" class="founder reveal">
-
-      <div class="founder-visual">
-
-        <div class="founder-monogram">
-          K
-        </div>
-
-        <div class="founder-stamp">
-          KNG.<br>
-          EST. 2026
-        </div>
-
-      </div>
-
-
-      <div class="founder-content">
-
-        <div class="section-label">
-          03 / THE FOUNDER
-        </div>
-
-        <p class="micro">
-          THE VISION BEHIND THE CROWN
-        </p>
-
-        <h2>
-          EMMANUEL<br>
-          <em>ISAAC O.</em>
-        </h2>
-
-        <p class="role">
-          CEO &amp; FOUNDER, KNG.
-        </p>
-
-        <blockquote>
-          “I didn't start KNG just to create clothes. I started it to create a standard.”
-        </blockquote>
-
-        <p>
-          KNG was born from a desire to build something that represents more than
-          fashion — a brand that gives people the confidence to embrace who they
-          are, create their own lane, and never be afraid to stand apart.
-        </p>
-
-        <p>
-          I wanted to create something that reflects the mindset I believe in:
-          confidence, ambition, discipline and individuality.
-        </p>
-
-        <p>
-          The crown became the symbol of that vision. Not a symbol of being above
-          anyone, but a reminder to know your worth, believe in yourself, and have
-          the courage to become the person you were meant to be.
-        </p>
-
-        <p class="founder-end">
-          KNG is my vision brought to life — and this is only the beginning.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         KNG STORE / COLLECTION LAUNCH
-    ==================================================== -->
-
-    <section id="collections" class="section collections reveal">
-
-      <div class="section-label">
-        04 / KNG STORE
-      </div>
-
-
-      <div class="collection-top">
-
-        <div>
-
-          <p class="micro">
-            THE FIRST CHAPTER
-          </p>
-
-          <h2>
-            THE CROWN<br>
-            <em>IS COMING.</em>
-          </h2>
-
-        </div>
-
-
-        <div class="intro">
-
-          <p>
-            The first KNG collections are being built.
-            Stay close. The drop will speak for itself.
-          </p>
-
-          <br>
-
-          <a
-            class="cta"
-            href="https://everything4king.github.io/KNG-STORE/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ENTER KNG STORE <span>↗</span>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         MANIFESTO
-    ==================================================== -->
-
-    <section class="manifesto reveal">
-
-      <div class="manifesto-line">
-        KNOW YOUR WORTH.
-      </div>
-
-      <div class="manifesto-line">
-        CREATE YOUR OWN LANE.
-      </div>
-
-      <div class="manifesto-line gold">
-        SET YOUR OWN STANDARD.
-      </div>
-
-      <div class="manifesto-crown">
-        ♛
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         CONTACT
-    ==================================================== -->
-
-    <section id="contact" class="contact section reveal">
-
-      <div class="section-label">
-        05 / CONNECT
-      </div>
-
-      <p class="micro">
-        DON'T JUST WATCH.
-      </p>
-
-      <h2>
-        STAY<br>
-        <em>DIFFERENT.</em>
-      </h2>
-
-      <p>
-        Follow the journey. The crown is only the beginning.
-      </p>
-
-
-      <div class="socials">
-
-        <a
-          href="https://www.instagram.com/kngwears001/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          INSTAGRAM <span>↗</span>
-        </a>
-
-
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=wearkng@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          EMAIL <span>↗</span>
-        </a>
-
-
-        <a
-          href="https://wa.me/2347077467561"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WHATSAPP <span>↗</span>
-        </a>
-
-
-        <a
-          href="https://t.me/07077467561"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TELEGRAM <span>↗</span>
-        </a>
-
-
-        <a
-          href="https://www.snapchat.com/add/everything4king"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          SNAPCHAT <span>↗</span>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         FINAL CTA
-    ==================================================== -->
-
-    <section class="final-cta reveal">
-
-      <p class="micro">
-        THE NEXT STANDARD
-      </p>
-
-      <h2>
-        YOU'VE SEEN<br>
-        <em>THE STANDARD.</em>
-      </h2>
-
-      <p>
-        Now wait for the drop.
-      </p>
-
-      <a class="cta" href="#home">
-        BACK TO THE CROWN <span>↑</span>
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer>
-
-    <div class="footer-brand">
-      KNG.
+    <div class="kng-hero-logo">
+        KNG.
     </div>
 
-    <div>
-      BUILT DIFFERENT. / WEAR THE CROWN. BE THE STANDARD.
-    </div>
-
-    <div>
-      © 2026 KNG.
-    </div>
-
-  </footer>
-
-
-  <!-- =====================================================
-       SCRIPT
-  ====================================================== -->
-
-  <script src="script.js"></script>
-
-</body>
-</html>
+</div>
