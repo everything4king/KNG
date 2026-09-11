@@ -94,6 +94,19 @@ footer{border-top:1px solid var(--line);padding:2rem 5vw;display:flex;justify-co
 @media(max-width:520px){.values,.collection-grid{grid-template-columns:1fr}.values article,.values article:nth-child(2),.values article:nth-child(4){padding:1.7rem 0;border-right:0}.collection-card{min-height:240px}}
 
 
+
+.store-cta-button{
+  border-color:var(--gold);
+  padding:1.1rem 1.6rem;
+  letter-spacing:.2em;
+  font-weight:600;
+}
+
+.store-cta-button:hover{
+  border-color:var(--gold);
+  background:#c9a24b20;
+  transform:translateY(-2px);
+}
 /* KNG LUXURY EDITORIAL OVERRIDES */
 body{background:#040404;color:#f2efe8}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
